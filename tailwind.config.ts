@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -25,12 +26,16 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: 'hsl(var(--primary))',
+					DEFAULT: '#0052CC', // Deep Blue
 					foreground: 'hsl(var(--primary-foreground))'
 				},
 				secondary: {
-					DEFAULT: 'hsl(var(--secondary))',
+					DEFAULT: '#00D1B2', // Electric Green
 					foreground: 'hsl(var(--secondary-foreground))'
+				},
+				accent: {
+					DEFAULT: '#C0C0C0', // Silver
+					foreground: '#000000' // Black
 				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
@@ -84,11 +89,16 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pulse-slow': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.5' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-slow': 'pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
 			}
 		}
 	},
