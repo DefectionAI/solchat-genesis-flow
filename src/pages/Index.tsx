@@ -5,6 +5,7 @@ import AppSidebar from '@/components/AppSidebar';
 import Navbar from '@/components/Navbar';
 import ChatRoom from '@/components/ChatRoom';
 import NewsBanner from '@/components/NewsBanner';
+import SidebarTrigger from '@/components/SidebarTrigger';
 
 const Index = () => {
   return (
@@ -14,6 +15,9 @@ const Index = () => {
         <div className="flex flex-1 overflow-hidden">
           <AppSidebar />
           <main className="flex-1 flex flex-col overflow-hidden">
+            <div className="p-2 md:hidden">
+              <SidebarTrigger />
+            </div>
             <div className="flex-1 overflow-hidden flex flex-col">
               <ChatRoom />
             </div>
