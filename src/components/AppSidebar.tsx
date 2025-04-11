@@ -7,7 +7,8 @@ import {
   Rocket, 
   TrendingUp, 
   Search,
-  Settings
+  Settings,
+  Plus
 } from 'lucide-react';
 import {
   Sidebar,
@@ -22,15 +23,17 @@ import {
 } from "@/components/ui/sidebar";
 
 import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { useWallet } from '@/hooks/useWallet';
 
 const chatRooms = [
   { id: 'general', name: 'General', icon: MessageSquare },
-  { id: 'announcements', name: 'Announcements', icon: Rocket },
   { id: 'trading', name: 'Trading', icon: TrendingUp },
-  { id: 'community', name: 'Community', icon: Users },
 ];
 
 const AppSidebar = () => {
+  const { connected } = useWallet();
+  
   return (
     <Sidebar>
       <SidebarContent>
@@ -51,7 +54,14 @@ const AppSidebar = () => {
         </SidebarGroup>
 
         <SidebarGroup>
-          <SidebarGroupLabel>Chat Rooms</SidebarGroupLabel>
+          <SidebarGroupLabel className="flex justify-between items-center pr-2">
+            <span>Chat Rooms</span>
+            {connected && (
+              <Button variant="ghost" size="icon" className="h-5 w-5">
+                <Plus size={14} />
+              </Button>
+            )}
+          </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {chatRooms.map((room) => (
@@ -78,27 +88,6 @@ const AppSidebar = () => {
                   placeholder="Search token address" 
                   className="pl-8 bg-sidebar-accent text-sidebar-accent-foreground" 
                 />
-              </div>
-            </div>
-          </SidebarGroupContent>
-        </SidebarGroup>
-
-        <SidebarGroup className="mt-auto">
-          <SidebarGroupLabel>GMGN.ai Chart</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <div className="px-3 py-2">
-              <div className="bg-card rounded-md overflow-hidden border border-border">
-                <div className="p-2 bg-muted/30 text-xs font-medium flex items-center justify-between">
-                  <span>GMGN Live Chart</span>
-                  <span className="text-secondary">+2.45%</span>
-                </div>
-                <div className="aspect-video w-full">
-                  <iframe 
-                    src="https://www.gmgn.cc/kline/sol/ukHH6c7mMyiWCf1b9pnWe25TSpkDDt3H5pQZgZ74J82?theme=dark&interval=15" 
-                    className="w-full h-full border-0"
-                    title="GMGN Chart"
-                  ></iframe>
-                </div>
               </div>
             </div>
           </SidebarGroupContent>

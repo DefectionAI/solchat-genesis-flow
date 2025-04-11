@@ -6,6 +6,8 @@ import Navbar from '@/components/Navbar';
 import ChatRoom from '@/components/ChatRoom';
 import NewsBanner from '@/components/NewsBanner';
 import SidebarTrigger from '@/components/SidebarTrigger';
+import GmgnBanner from '@/components/GmgnBanner';
+import LatestUpdates from '@/components/LatestUpdates';
 
 const Index = () => {
   return (
@@ -18,10 +20,19 @@ const Index = () => {
             <div className="p-2 md:hidden">
               <SidebarTrigger />
             </div>
-            <div className="flex-1 overflow-hidden flex flex-col">
-              <ChatRoom />
+            <div className="flex flex-1 overflow-hidden">
+              <div className="flex-1 flex flex-col overflow-hidden p-4">
+                <GmgnBanner />
+                <div className="flex flex-1 mt-4 gap-4 overflow-hidden">
+                  <div className="flex-1 flex flex-col overflow-hidden border border-border rounded-lg shadow-md bg-card/50">
+                    <ChatRoom />
+                  </div>
+                  <div className="hidden md:flex md:w-80 flex-col overflow-hidden">
+                    <LatestUpdates />
+                  </div>
+                </div>
+              </div>
             </div>
-            <NewsBanner />
           </main>
         </div>
       </div>
