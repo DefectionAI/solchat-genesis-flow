@@ -23,8 +23,8 @@ const ChatMessage = ({ message }: ChatMessageProps) => {
       message.isCurrentUser && "flex-row-reverse"
     )}>
       <div className={cn(
-        "flex-shrink-0 h-8 w-8 bg-muted rounded-full flex items-center justify-center",
-        message.isWalletConnected && "bg-primary/20"
+        "flex-shrink-0 h-8 w-8 rounded-full flex items-center justify-center",
+        message.isWalletConnected ? "bg-primary text-white" : "bg-accent"
       )}>
         {message.isWalletConnected ? (
           <svg 
@@ -32,7 +32,7 @@ const ChatMessage = ({ message }: ChatMessageProps) => {
             height="16" 
             viewBox="0 0 24 24" 
             fill="none" 
-            className="text-primary"
+            className="text-white"
             stroke="currentColor" 
             strokeWidth="2" 
             strokeLinecap="round" 
@@ -65,8 +65,10 @@ const ChatMessage = ({ message }: ChatMessageProps) => {
         </div>
         
         <div className={cn(
-          "message-bubble",
-          message.isCurrentUser ? "message-bubble-user" : "message-bubble-other"
+          "p-3 rounded-lg mb-2 max-w-[80%] break-words",
+          message.isCurrentUser 
+            ? "bg-primary/20 border border-primary/30 ml-auto" 
+            : "bg-accent border border-accent/50 mr-auto"
         )}>
           {message.text}
         </div>

@@ -13,7 +13,7 @@ const news = [
   {
     id: 2,
     title: 'New premium features for wallet users',
-    description: 'Connect your Solana wallet to access pinned messages, highlighted shouts, and more.',
+    description: 'Send premium messages for just 0.5 SOL per feature. Pay to: 3qHbhxWv1cVhf9L9pvyK23g6AxRs6vNQ7aTZHaDBF61r',
     date: '1 day ago',
     icon: TrendingUp
   },
@@ -35,27 +35,19 @@ const news = [
 
 const LatestUpdates = () => {
   return (
-    <div className="h-full border border-border rounded-lg shadow-md bg-card/50 overflow-y-auto">
-      <div className="sticky top-0 p-3 border-b border-border bg-card/90 backdrop-blur-sm z-10">
-        <h3 className="text-lg font-semibold flex items-center">
-          <Bell className="h-4 w-4 mr-2 text-secondary" />
-          Latest Updates
-          <ChevronRight className="h-4 w-4 ml-1 text-secondary" />
-        </h3>
-      </div>
-      
+    <div className="h-[calc(450px-40px)] overflow-y-auto">
       <div className="p-3 space-y-3">
         {news.map((item) => (
-          <div key={item.id} className="rounded-lg border border-border p-3 hover:border-secondary/50 transition-colors cursor-pointer">
+          <div key={item.id} className="rounded-md border border-primary/30 p-3 hover:border-primary transition-colors cursor-pointer bg-accent/30">
             <div className="flex gap-3">
-              <div className="mt-1 h-6 w-6 text-secondary">
+              <div className="mt-1 h-6 w-6 text-primary">
                 <item.icon className="h-6 w-6" />
               </div>
               <div>
                 <div className="flex justify-between items-start mb-1">
-                  <h4 className="font-medium">{item.title}</h4>
+                  <h4 className="font-medium text-primary">{item.title}</h4>
                 </div>
-                <p className="text-sm text-muted-foreground">{item.description}</p>
+                <p className="text-sm text-foreground">{item.description}</p>
                 <span className="text-xs text-muted-foreground mt-2 block">{item.date}</span>
               </div>
             </div>

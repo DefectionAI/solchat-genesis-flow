@@ -12,31 +12,24 @@ const news = [
   {
     id: 2,
     title: 'New premium features for wallet users',
-    description: 'Connect your Solana wallet to access pinned messages, highlighted shouts, and more.',
+    description: 'Connect your Solana wallet to access pinned messages, highlighted shouts, and more for just 0.5 SOL per feature.',
     date: '1 day ago'
   }
 ];
 
 const NewsBanner = () => {
   return (
-    <div className="border-t border-border bg-card/50 backdrop-blur-sm">
-      <div className="p-4">
-        <h3 className="text-lg font-semibold mb-3 flex items-center">
-          Latest Updates
-          <ChevronRight className="h-4 w-4 ml-1 text-secondary" />
-        </h3>
-        
-        <div className="space-y-4">
-          {news.map((item) => (
-            <div key={item.id} className="rounded-lg border border-border p-3 hover:border-secondary/50 transition-colors cursor-pointer">
-              <div className="flex justify-between items-start mb-1">
-                <h4 className="font-medium">{item.title}</h4>
-                <span className="text-xs text-muted-foreground">{item.date}</span>
-              </div>
-              <p className="text-sm text-muted-foreground">{item.description}</p>
+    <div className="p-4 bg-white">
+      <div className="space-y-3">
+        {news.map((item) => (
+          <div key={item.id} className="rounded-md border border-primary/30 p-3 hover:border-primary/50 transition-colors cursor-pointer bg-accent/30">
+            <div className="flex justify-between items-start mb-1">
+              <h4 className="font-medium text-primary">{item.title}</h4>
+              <span className="text-xs text-muted-foreground">{item.date}</span>
             </div>
-          ))}
-        </div>
+            <p className="text-sm text-foreground">{item.description}</p>
+          </div>
+        ))}
       </div>
     </div>
   );

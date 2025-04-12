@@ -35,15 +35,15 @@ const AppSidebar = () => {
   const { connected } = useWallet();
   
   return (
-    <Sidebar>
+    <Sidebar className="border-r border-primary/30 bg-accent">
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Navigation</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-primary font-bold">Navigation</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                  <a href="/">
+                  <a href="/" className="text-primary hover:bg-primary/10">
                     <Home size={18} />
                     <span>Home</span>
                   </a>
@@ -54,10 +54,10 @@ const AppSidebar = () => {
         </SidebarGroup>
 
         <SidebarGroup>
-          <SidebarGroupLabel className="flex justify-between items-center pr-2">
+          <SidebarGroupLabel className="flex justify-between items-center pr-2 text-primary font-bold">
             <span>Chat Rooms</span>
             {connected && (
-              <Button variant="ghost" size="icon" className="h-5 w-5">
+              <Button variant="ghost" size="icon" className="h-5 w-5 text-secondary">
                 <Plus size={14} />
               </Button>
             )}
@@ -67,7 +67,7 @@ const AppSidebar = () => {
               {chatRooms.map((room) => (
                 <SidebarMenuItem key={room.id}>
                   <SidebarMenuButton asChild>
-                    <a href={`#${room.id}`}>
+                    <a href={`#${room.id}`} className="text-primary hover:bg-primary/10">
                       <room.icon size={18} />
                       <span>{room.name}</span>
                     </a>
@@ -79,14 +79,14 @@ const AppSidebar = () => {
         </SidebarGroup>
 
         <SidebarGroup>
-          <SidebarGroupLabel>Token Search</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-primary font-bold">Token Search</SidebarGroupLabel>
           <SidebarGroupContent>
             <div className="px-3 py-2">
               <div className="relative">
-                <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
+                <Search className="absolute left-2 top-2.5 h-4 w-4 text-primary" />
                 <Input 
                   placeholder="Search token address" 
-                  className="pl-8 bg-sidebar-accent text-sidebar-accent-foreground" 
+                  className="pl-8 border-primary/30 focus:border-primary" 
                 />
               </div>
             </div>
@@ -94,14 +94,14 @@ const AppSidebar = () => {
         </SidebarGroup>
       </SidebarContent>
 
-      <SidebarFooter>
+      <SidebarFooter className="border-t border-primary/30">
         <div className="flex items-center justify-between px-3 py-2">
           <div className="flex items-center gap-2">
             <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center">
               <Settings size={16} className="text-primary" />
             </div>
             <div className="text-xs">
-              <div className="font-medium">Settings</div>
+              <div className="font-medium text-primary">Settings</div>
               <div className="text-muted-foreground">Customize SolChat</div>
             </div>
           </div>
